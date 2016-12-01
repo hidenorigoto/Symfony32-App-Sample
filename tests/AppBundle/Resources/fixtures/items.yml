@@ -1,0 +1,35 @@
+AppBundle\Entity\ItemPrice(local):
+  price1:
+    price: 100
+  price2:
+    price: 200
+  price3:
+    price: 300
+  price4:
+    price: 400
+  price5:
+    price: 500
+
+AppBundle\Entity\Item\NormalItem:
+  normal_item1:
+    name: 商品1
+    price: "@price1"
+    deliveryTimeType: instant
+  normal_item2:
+    name: 商品2
+    price: "@price2"
+    deliveryTimeType: instant
+  normal_item3:
+    name: 商品3
+    price: "@price3"
+    deliveryTimeType: estimation
+
+AppBundle\Entity\Item\CustomOrderItem:
+  custom_order_item1:
+    name: カスタム商品1
+    price: "@price4"
+    deliveryTimeType: estimation
+  custom_order_item2:
+    name: カスタム商品2
+    price: "@price5"
+    deliveryTimeType: estimation
