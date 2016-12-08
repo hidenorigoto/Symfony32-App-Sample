@@ -1,7 +1,7 @@
 <?php
-
 namespace AppBundle\Entity;
 
+use AppBundle\DeliveryTime\DeliveryTimeTypeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *   "custom_order":  "AppBundle\Entity\Item\CustomOrderItem",
  * })
  * @ORM\InheritanceType(value="SINGLE_TABLE")
+ * @ORM\EntityListeners({"AppBundle\Entity\Listener\ItemListener"})
  */
 abstract class Item
 {
@@ -89,7 +90,7 @@ abstract class Item
     }
 
     /**
-     * @return string
+     * @return DeliveryTimeTypeInterface|string
      */
     public function getDeliveryTimeType()
     {
@@ -97,7 +98,7 @@ abstract class Item
     }
 
     /**
-     * @param string $deliveryTimeType
+     * @param DeliveryTimeTypeInterface|string $deliveryTimeType
      * @return $this
      */
     public function setDeliveryTimeType($deliveryTimeType)

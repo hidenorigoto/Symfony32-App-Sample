@@ -1,0 +1,10 @@
+services:
+  app.entity.item_listener:
+    class: AppBundle\Entity\Listener\ItemListener
+    arguments:
+      - '@app.transformer.item_delivery_time_type_transfomer'
+    tags:
+      - { name: doctrine.orm.entity_listener }
+
+  app.transformer.item_delivery_time_type_transfomer:
+    class: AppBundle\Transformer\ItemDeliveryTimeTypeTransformer
